@@ -18,7 +18,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = (props) => {
         <>
           {props.children}
           <span
-            className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-slate-900 transition-[width] duration-500 group-hover:w-full ${
+            className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-primary transition-[width] duration-500 group-hover:w-full ${
               isActive ? "w-full" : "w-0"
             }`}
           >
