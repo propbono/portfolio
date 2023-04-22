@@ -1,5 +1,4 @@
-import type { LinksFunction, LoaderArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,39 +6,75 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
-import { getUser } from "./session.server";
 import { Footer, Header } from "./components";
+import {
+  NonFlashOfWrongThemeEls,
+  ThemeProvider,
+  useTheme,
+} from "~/utils/theme-provider";
+import type { Theme } from "~/utils/theme-provider";
+import { getThemeSession } from "~/utils/theme.server";
+import clsx from "clsx";
+import { getUser } from "./session.server";
+import type { User } from "./models/user.server";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
 };
 
-export async function loader({ request }: LoaderArgs) {
-  return json({
-    user: await getUser(request),
-  });
-}
+export type LoaderData = {
+  theme: Theme | null;
+  user: User | null;
+};
 
-export default function App() {
+export const loader: LoaderFunction = async ({ request }) => {
+  const themeSession = await getThemeSession(request);
+  const user = await getUser(request);
+
+  const data: LoaderData = {
+    theme: themeSession.getTheme(),
+    user: user,
+  };
+
+  return data;
+};
+
+function App() {
+  const data = useLoaderData<LoaderData>();
+
+  const [theme] = useTheme();
+
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={clsx(theme ?? "", "h-full")}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
       </head>
-      <body className="h-full bg-[#f5f5f5]">
+      <body className="h-full bg-tertiary dark:bg-shade-800">
         <Header />
         <Outlet />
         <Footer />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
+        {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
+  );
+}
+
+export default function AppWithProviders() {
+  const data = useLoaderData<LoaderData>();
+
+  return (
+    <ThemeProvider specifiedTheme={data.theme}>
+      <App />
+    </ThemeProvider>
   );
 }
