@@ -19,8 +19,6 @@ import {
 import type { Theme } from "~/utils/theme-provider";
 import { getThemeSession } from "~/utils/theme.server";
 import clsx from "clsx";
-import { getUser } from "./session.server";
-import type { User } from "./models/user.server";
 
 export const links: LinksFunction = () => {
   return [
@@ -40,16 +38,13 @@ export const links: LinksFunction = () => {
 
 export type LoaderData = {
   theme: Theme | null;
-  user: User | null;
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
   const themeSession = await getThemeSession(request);
-  const user = await getUser(request);
 
   const data: LoaderData = {
     theme: themeSession.getTheme(),
-    user: user,
   };
 
   return data;
