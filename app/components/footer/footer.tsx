@@ -6,14 +6,13 @@ import {
   RiLinkedinFill,
 } from "react-icons/ri";
 
-const socialIconStyle =
-  "mr-4 text-primary dark:text-shade-300 hover:text-shade-300 dark:hover:text-primary";
+const socialIconStyle = "ml-8 text-secondary-light hover:text-primary-accent";
 
 export const Footer = () => {
   return (
-    <footer className="flex w-full flex-col items-center justify-between gap-4 bg-secondary px-32 py-8 font-medium md:flex-row">
-      <span className="flex items-center align-middle text-shade-300">
-        <RiCopyrightLine /> 2023 propbono
+    <footer className="flex w-full flex-col items-center justify-between gap-4 bg-primary-dark px-32 py-8 font-medium md:flex-row">
+      <span className="flex items-center align-middle text-secondary-light">
+        <RiCopyrightLine /> 2023 by Greg Mozer
       </span>
       <nav className="flex items-center align-middle">
         <Link

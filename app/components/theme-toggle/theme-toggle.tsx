@@ -1,9 +1,11 @@
-import clsx from "clsx";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import { Theme, useTheme } from "~/utils/theme-provider";
 
-const themeToggleStyle =
-  "transform text-secondary transition duration-1000 motion-reduce:duration-[0s]  dark:text-shade-300 group-hover:text-primary dark:group-hover:text-primary";
+const style = {
+  container:
+    "group inline-flex h-10 w-10 transform items-center justify-center rounded-full border-2 border-secondary p-1 transition transition duration-1000 hover:border-primary focus:border-primary focus:outline-none dark:border-shade-300 dark:hover:border-primary",
+  icon: "h-6 w-6 text-secondary transform transition duration-1000 dark:text-shade-300 group-hover:text-primary dark:group-hover:text-primary",
+};
 
 const ThemeToggle: React.FC = () => {
   const [theme, setTheme] = useTheme();
@@ -14,22 +16,13 @@ const ThemeToggle: React.FC = () => {
           previousTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK
         );
       }}
-      className={clsx(
-        "group inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-secondary p-1 transition hover:border-primary focus:border-primary focus:outline-none dark:border-shade-300 dark:hover:border-primary"
-      )}
+      className={style.container}
     >
-      <RiMoonFill
-        className={clsx(
-          theme === Theme.DARK ? "hidden" : "flex",
-          themeToggleStyle
-        )}
-      />
-      <RiSunFill
-        className={clsx(
-          theme === Theme.LIGHT ? "hidden" : "flex",
-          themeToggleStyle
-        )}
-      />
+      {theme === Theme.DARK ? (
+        <RiMoonFill className={style.icon} />
+      ) : (
+        <RiSunFill className={style.icon} />
+      )}
     </button>
   );
 };
