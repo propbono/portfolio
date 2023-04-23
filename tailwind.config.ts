@@ -21,6 +21,7 @@ export default {
     fontFamily: {
       logo: ["Righteous", "cursive"],
       body: ["Ubuntu", "sans-serif"],
+      link: ["Cabin", "sans-serfif"],
     },
   },
   darkMode: "class",
