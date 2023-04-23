@@ -23,7 +23,19 @@ import { getUser } from "./session.server";
 import type { User } from "./models/user.server";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+    { rel: "precconect", href: "https://fonts.googleapis.com" },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Righteous&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap",
+    },
+  ];
 };
 
 export type LoaderData = {
@@ -57,7 +69,7 @@ function App() {
         <Links />
         <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
       </head>
-      <body className="h-full bg-tertiary dark:bg-shade-800">
+      <body className="h-full bg-primary-light font-body dark:bg-primary-dark">
         <Header />
         <Outlet />
         <Footer />
