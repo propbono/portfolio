@@ -1,0 +1,30 @@
+import { RiMoonFill, RiSunFill } from "react-icons/ri";
+import { Theme, useTheme } from "~/utils/theme-provider";
+
+const style = {
+  container:
+    "group inline-flex h-10 w-10 transform items-center justify-center rounded-full border-2 border-secondary p-1 transition transition duration-1000 hover:border-primary focus:border-primary focus:outline-none dark:border-shade-300 dark:hover:border-primary",
+  icon: "h-6 w-6 text-secondary transform transition duration-1000 dark:text-shade-300 group-hover:text-primary dark:group-hover:text-primary",
+};
+
+const ThemeToggle: React.FC = () => {
+  const [theme, setTheme] = useTheme();
+  return (
+    <button
+      onClick={() => {
+        setTheme((previousTheme) =>
+          previousTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK
+        );
+      }}
+      className={style.container}
+    >
+      {theme === Theme.DARK ? (
+        <RiMoonFill className={style.icon} />
+      ) : (
+        <RiSunFill className={style.icon} />
+      )}
+    </button>
+  );
+};
+
+export default ThemeToggle;
