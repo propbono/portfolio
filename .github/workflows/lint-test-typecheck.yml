@@ -1,10 +1,8 @@
-name: 🚀 Deploy - Production (Lint, Test, Typecheck, Deploy)
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+name: 🚀 Lint, Test, Typecheck
 on:
   push:
-    branches:
+    branches-ignore:
+      - dev
       - master
 
 permissions:
@@ -80,18 +78,3 @@ jobs:
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
-
-  deploy-prod:
-    name: Deploy to Production
-    runs-on: ubuntu-latest
-    needs: [lint, typecheck, vitest]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-      - name: Pull Vercel Environment Info
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy Project to Staging on vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
