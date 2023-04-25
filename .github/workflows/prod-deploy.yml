@@ -82,7 +82,9 @@ jobs:
         run: npm run test -- --coverage
 
   deploy-prod:
+    name: Deploy to Production
     runs-on: ubuntu-latest
+    needs: [lint, typecheck, vitest]
     steps:
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
