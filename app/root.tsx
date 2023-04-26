@@ -66,7 +66,9 @@ function App() {
       </head>
       <body className="h-full bg-primary-light font-body dark:bg-primary-dark">
         <Header />
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
         <Footer />
         <ScrollRestoration />
         <Scripts />
