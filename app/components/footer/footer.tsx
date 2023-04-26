@@ -7,7 +7,8 @@ import {
 } from "react-icons/ri";
 import Container from "../container/container";
 
-const socialIconStyle = "ml-8 text-secondary-light hover:text-primary-accent";
+const socialIconStyle =
+  "ml-8 first-of-type:ml-0 text-secondary-light hover:text-primary-accent";
 
 export const Footer = () => {
   return (
