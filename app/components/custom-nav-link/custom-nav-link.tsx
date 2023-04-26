@@ -12,7 +12,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = (props) => {
       to={props.to}
       className={`${
         props.className ? props.className + " " : ""
-      } group relative font-link text-xl font-bold text-secondary-dark hover:text-primary-dark dark:text-secondary-light dark:hover:text-primary-light`}
+      } group relative font-link text-lg font-bold text-secondary-dark hover:text-primary-dark dark:text-secondary-light dark:hover:text-primary-light md:text-xl`}
     >
       {({ isActive }) => (
         <>
