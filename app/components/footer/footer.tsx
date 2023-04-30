@@ -12,8 +12,8 @@ const socialIconStyle =
 
 export const Footer = () => {
   return (
-    <footer>
-      <Container className="flex w-full flex-col items-center justify-between gap-4 bg-primary-dark py-8 font-medium md:flex-row">
+    <footer className="bg-primary-dark">
+      <Container className="flex w-full flex-col items-center justify-between gap-4 py-8 font-medium md:flex-row">
         <span className="flex items-center align-middle text-secondary-light">
           <RiCopyrightLine /> 2023 by Greg Mozer
         </span>
