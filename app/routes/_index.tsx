@@ -1,5 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import { Container, HeroSection, Section, TechStack } from "~/components";
+import { HeroSection, TechStack } from "~/components";
 
 export const meta: V2_MetaFunction = () => [
   { title: "Propbono - Portfolio Website" },
