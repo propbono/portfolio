@@ -1,7 +1,6 @@
 import { Link } from "@remix-run/react";
 import Container from "../container/container";
 import Section from "../section/section";
-import { DiReact } from "react-icons/di";
 import {
   SiRemix,
   SiReact,

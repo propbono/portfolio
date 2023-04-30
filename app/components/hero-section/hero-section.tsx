@@ -26,13 +26,13 @@ export const HeroSection = () => {
             web development and see how I can help bring your ideas to life.
           </p>
           <div className="flex justify-normal md:col-span-2 md:col-start-4 md:row-span-1  md:justify-end">
-            <Link
+            {/* <Link
               to="/projects"
               title="Projects Button Link"
               className="transform items-center rounded-lg border-0 bg-primary-dark px-10 py-3 font-link text-xl font-bold text-primary-light outline-none transition duration-1000 hover:bg-primary-accent dark:bg-primary-light dark:text-secondary-dark dark:hover:bg-primary-accent "
             >
               Explore Projects
-            </Link>
+            </Link> */}
           </div>
         </div>
       </Container>
