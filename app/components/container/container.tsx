@@ -10,7 +10,7 @@ export const Container: FC<ContainerProps> = ({ children, className = "" }) => {
     <div
       className={clsx(
         className,
-        "container relative z-0 mx-auto px-6 md:px-32"
+        "container relative z-0 mx-auto max-w-5xl px-6"
       )}
     >
       {children}

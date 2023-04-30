@@ -21,7 +21,7 @@ export const TechStack = () => {
         <h2 className="pb-2 font-logo text-2xl font-bold text-primary-accent">
           Tech Stack
         </h2>
-        <p className="pb-4 text-lg text-primary-dark dark:text-primary-light">
+        <p className="pb-10 text-lg text-primary-dark dark:text-primary-light">
           My favourite technologies that I use in my projects.
         </p>
         <div className="flex items-center justify-between gap-4 text-secondary-dark dark:text-secondary-light">
@@ -31,7 +31,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://react.dev/"}
           >
-            <SiReact className="h-8 w-8" />
+            <SiReact className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -39,7 +39,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://www.typescriptlang.org/"}
           >
-            <SiTypescript className="h-8 w-8" />
+            <SiTypescript className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -47,7 +47,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://remix.run/"}
           >
-            <SiRemix className="h-8 w-8" />
+            <SiRemix className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -55,7 +55,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://nextjs.org/"}
           >
-            <SiNextdotjs className="h-8 w-8" />
+            <SiNextdotjs className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -63,7 +63,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://tailwindcss.com/"}
           >
-            <SiTailwindcss className="h-8 w-8" />
+            <SiTailwindcss className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -71,7 +71,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://www.prisma.io/"}
           >
-            <SiPrisma className="h-8 w-8" />
+            <SiPrisma className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -79,7 +79,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://nodejs.org/en"}
           >
-            <SiNodedotjs className="h-8 w-8" />
+            <SiNodedotjs className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -87,7 +87,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://www.python.org/"}
           >
-            <SiPython className="h-8 w-8" />
+            <SiPython className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
@@ -95,7 +95,7 @@ export const TechStack = () => {
             target="_blank"
             to={"https://git-scm.com/"}
           >
-            <SiGit className="h-8 w-8" />
+            <SiGit className="h-6 w-6 md:h-8 md:w-8" />
           </Link>
         </div>
       </Container>
