@@ -18,12 +18,12 @@ export const Header = () => {
             <CustomNavLink to="/" className="mr-8">
               Home
             </CustomNavLink>
-            {/* <CustomNavLink to="/projects" className="mr-8">
+            <CustomNavLink to="/projects" className="mr-8">
               Projects
             </CustomNavLink>
             <CustomNavLink to="/about" className="mr-8">
               About
-            </CustomNavLink> */}
+            </CustomNavLink>
           </section>
           <section
             id="mobileMenu"
@@ -36,12 +36,12 @@ export const Header = () => {
             <CustomNavLink to="/" className="mb-4">
               Home
             </CustomNavLink>
-            {/* <CustomNavLink to="/projects" className="mb-4">
+            <CustomNavLink to="/projects" className="mb-4">
               Projects
             </CustomNavLink>
             <CustomNavLink to="/about" className="mb-4">
               About
-            </CustomNavLink> */}
+            </CustomNavLink>
           </section>
         </nav>
         <div className="flex items-center justify-center align-middle">
