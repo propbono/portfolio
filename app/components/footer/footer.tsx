@@ -19,6 +19,7 @@ export const Footer = () => {
         </span>
         <nav className="flex items-center align-middle">
           <Link
+            title="Github"
             to="https://github.com/propbono/"
             className={socialIconStyle}
             target="_blank"
@@ -26,6 +27,7 @@ export const Footer = () => {
             <RiGithubFill className="h-6 w-6" />
           </Link>
           <Link
+            title="LinkedIn"
             to="https://www.linkedin.com/in/greg-mozer/"
             className={socialIconStyle}
             target="_blank"
