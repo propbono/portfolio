@@ -50,6 +50,7 @@ export const Header = () => {
           <button
             onClick={() => setMobileMenu((previousState) => !previousState)}
             className="z-30 ml-4 flex text-primary-dark hover:text-primary-accent focus:text-primary-accent dark:text-primary-light md:hidden"
+            title="Mobile Menu"
           >
             {mobileMenu ? (
               <RiCloseCircleLine className="h-6 w-6" />

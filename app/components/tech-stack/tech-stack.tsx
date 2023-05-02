@@ -90,7 +90,7 @@ export const TechStack = () => {
           </Link>
           <Link
             className="transform transition duration-1000 hover:text-primary-accent"
-            title="Python"
+            title="Git"
             target="_blank"
             to={"https://git-scm.com/"}
           >

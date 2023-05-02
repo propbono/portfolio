@@ -17,6 +17,7 @@ const ThemeToggle: React.FC = () => {
         );
       }}
       className={style.container}
+      title="Theme Toggle"
     >
       {theme === Theme.DARK ? (
         <RiMoonFill className={style.icon} />
