@@ -15,6 +15,7 @@
     "start": "remix-serve build",
     "start:mocks": "binode --require ./mocks -- @remix-run/serve:remix-serve build",
     "test": "vitest",
+    "test:e2e": "npx playwright test",
     "pretest:e2e:run": "npm run build",
     "typecheck": "tsc",
     "validate": "run-p \"test -- --run\" lint typecheck"
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
+    "@playwright/test": "^1.33.0",
     "@remix-run/dev": "^1.15.0",
     "@remix-run/eslint-config": "^1.15.0",
     "@testing-library/dom": "^8.20.0",
