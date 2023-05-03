@@ -82,9 +82,9 @@ function App() {
         <Links />
         <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
       </head>
-      <body className="h-full bg-primary-light font-body dark:bg-primary-dark">
+      <body className="flex min-h-full flex-col bg-primary-light font-body dark:bg-primary-dark">
         <Header />
-        <main>
+        <main className="flex-1 items-start">
           <Outlet />
         </main>
         <Footer />
