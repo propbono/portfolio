@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "14"
-      - run: npm ci
+      - run: npm install
       - run: npx playwright install --with-deps
       - name: Run Tests
         run: npm run test:e2e
