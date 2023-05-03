@@ -1,9 +1,7 @@
-import { test, expect, defineConfig } from "@playwright/test";
-
-const BASE_URL = "http://localhost:3000/";
+import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(BASE_URL);
+  await page.goto("/");
 });
 
 test("Checking all navigation links in header", async ({ page }) => {
@@ -13,7 +11,7 @@ test("Checking all navigation links in header", async ({ page }) => {
   await logoLink.click();
   await expect(logoLink).toHaveAttribute("aria-current", "page");
   await expect(logoLink).toHaveClass(/active/);
-  await expect(page).toHaveURL(BASE_URL);
+  await expect(page).toHaveURL("/");
 
   const aboutLink = page.getByRole("link", { name: "About" });
   await expect(aboutLink).toBeVisible();
@@ -21,7 +19,7 @@ test("Checking all navigation links in header", async ({ page }) => {
   await aboutLink.click();
   await expect(aboutLink).toHaveAttribute("aria-current", "page");
   await expect(aboutLink).toHaveClass(/active/);
-  await expect(page).toHaveURL(BASE_URL + "about");
+  await expect(page).toHaveURL("/about");
 
   const projectsLink = page.getByRole("link", { name: "Projects" });
   await expect(projectsLink).toBeVisible();
@@ -29,7 +27,7 @@ test("Checking all navigation links in header", async ({ page }) => {
   await projectsLink.click();
   await expect(projectsLink).toHaveAttribute("aria-current", "page");
   await expect(projectsLink).toHaveClass(/active/);
-  await expect(page).toHaveURL(BASE_URL + "projects");
+  await expect(page).toHaveURL("/projects");
 
   const homeLink = page.getByRole("link", { name: "Home" });
   await expect(homeLink).toBeVisible();
@@ -37,7 +35,7 @@ test("Checking all navigation links in header", async ({ page }) => {
   await homeLink.click();
   await expect(homeLink).toHaveAttribute("aria-current", "page");
   await expect(homeLink).toHaveClass(/active/);
-  await expect(page).toHaveURL(BASE_URL);
+  await expect(page).toHaveURL("/");
 });
 
 test("Checking all external links in footer", async ({ page }) => {
@@ -60,7 +58,7 @@ test("Checking all external links in footer", async ({ page }) => {
   await linkedInLink.click();
   const linkedInPage = await linkedInPagePromise;
   await expect(linkedInPage).toHaveURL(
-    "https://www.linkedin.com/in/greg-mozer/"
+    /https:\/\/www.linkedin.com\/in\/greg-mozer\//
   );
 });
 
