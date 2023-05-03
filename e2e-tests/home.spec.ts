@@ -1,9 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-const BASE_URL = "http://localhost:3000/";
-
 test.beforeEach(async ({ page }) => {
-  await page.goto(BASE_URL);
+  await page.goto("/");
 });
 
 test("Has proper title and content in hero section", async ({ page }) => {
@@ -32,7 +30,7 @@ test("Has proper title and content in hero section", async ({ page }) => {
 
   await button.click();
 
-  await expect(page).toHaveURL(BASE_URL + "projects");
+  await expect(page).toHaveURL("/projects");
 });
 
 test("Has a proper content and links in tech stack section", async ({
@@ -64,55 +62,48 @@ test("Has a proper content and links in tech stack section", async ({
   const typescriptPage = await typescriptPagePromise;
   await expect(typescriptPage).toHaveURL("https://www.typescriptlang.org/");
 
-  const remixPagePromise = page.waitForEvent("popup");
   const remixLink = page.getByRole("link", { name: "RemixJS" });
   await expect(remixLink).toHaveAttribute("href", "https://remix.run/");
   await remixLink.click();
-  const remixPage = await remixPagePromise;
+  const remixPage = await page.waitForEvent("popup");
   await expect(remixPage).toHaveURL("https://remix.run/");
 
-  const nextPagePromise = page.waitForEvent("popup");
   const nextLink = page.getByRole("link", { name: "NextJS" });
   await expect(nextLink).toHaveAttribute("href", "https://nextjs.org/");
   await nextLink.click();
-  const nextPage = await nextPagePromise;
+  const nextPage = await page.waitForEvent("popup");
   await expect(nextPage).toHaveURL("https://nextjs.org/");
 
-  const tailwindPagePromise = page.waitForEvent("popup");
   const tailwindLink = page.getByRole("link", { name: "TailwindCSS" });
   await expect(tailwindLink).toHaveAttribute(
     "href",
     "https://tailwindcss.com/"
   );
   await tailwindLink.click();
-  const tailwindPage = await tailwindPagePromise;
+  const tailwindPage = await page.waitForEvent("popup");
   await expect(tailwindPage).toHaveURL("https://tailwindcss.com/");
 
-  const prismaPagePromise = page.waitForEvent("popup");
   const prismaLink = page.getByRole("link", { name: "Prisma" });
   await expect(prismaLink).toHaveAttribute("href", "https://www.prisma.io/");
   await prismaLink.click();
-  const prismaPage = await prismaPagePromise;
+  const prismaPage = await page.waitForEvent("popup");
   await expect(prismaPage).toHaveURL("https://www.prisma.io/");
 
-  const nodePagePromise = page.waitForEvent("popup");
   const nodeLink = page.getByRole("link", { name: "NodeJS" });
   await expect(nodeLink).toHaveAttribute("href", "https://nodejs.org/en");
   await nodeLink.click();
-  const nodePage = await nodePagePromise;
+  const nodePage = await page.waitForEvent("popup");
   await expect(nodePage).toHaveURL("https://nodejs.org/en");
 
-  const pythonPagePromise = page.waitForEvent("popup");
   const pythonLink = page.getByRole("link", { name: "Python" });
   await expect(pythonLink).toHaveAttribute("href", "https://www.python.org/");
   await pythonLink.click();
-  const pythonPage = await pythonPagePromise;
+  const pythonPage = await page.waitForEvent("popup");
   await expect(pythonPage).toHaveURL("https://www.python.org/");
 
-  const gitPagePromise = page.waitForEvent("popup");
   const gitLink = page.getByRole("link", { name: "Git", exact: true });
   await expect(gitLink).toHaveAttribute("href", "https://git-scm.com/");
   await gitLink.click();
-  const gitPage = await gitPagePromise;
+  const gitPage = await page.waitForEvent("popup");
   await expect(gitPage).toHaveURL("https://git-scm.com/");
 });
