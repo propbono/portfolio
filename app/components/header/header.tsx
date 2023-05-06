@@ -9,7 +9,7 @@ export const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <header>
+    <header id="header">
       <Container className="flex w-full items-center justify-between py-8">
         <Logo />
         <nav>
