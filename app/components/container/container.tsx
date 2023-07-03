@@ -8,7 +8,10 @@ export interface ContainerProps {
 export const Container: FC<ContainerProps> = ({ children, className = "" }) => {
   return (
     <div
-      className={clsx(className, "container relative mx-auto max-w-7xl px-6")}
+      className={clsx(
+        className,
+        "container relative mx-auto px-6 md:max-w-5xl 2xl:max-w-7xl"
+      )}
     >
       {children}
     </div>
