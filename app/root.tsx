@@ -9,7 +9,6 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import tailwindStylesheetUrl from "~/styles/tailwind.css";
 import { Footer, Header } from "~/components";
 import {
   NonFlashOfWrongThemeEls,
@@ -19,6 +18,7 @@ import {
 import type { Theme } from "~/utils/theme-provider";
 import { getThemeSession } from "~/utils/theme.server";
 import clsx from "clsx";
+import tailwindStylesheetUrl from "~/styles/tailwind.css";
 
 export const links: LinksFunction = () => {
   return [
