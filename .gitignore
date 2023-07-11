@@ -1,5 +1,6 @@
 node_modules
 
+/.cache
 /build
 /public/build
 .env
@@ -8,8 +9,6 @@ node_modules
 /cypress/videos
 /prisma/data.db
 /prisma/data.db-journal
-
-/app/styles/tailwind.css
 
 .vercel
 /test-results/

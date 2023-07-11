@@ -1,28 +1,53 @@
-import Logo from "../logo/logo";
 import CustomNavLink from "../custom-nav-link/custom-nav-link";
 import ThemeToggle from "../theme-toggle/theme-toggle";
 import Container from "../container/container";
 import { RiMenuLine, RiCloseCircleLine } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavLink } from "@remix-run/react";
 
 export const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTransparent(window.scrollY === 0);
+    };
+
+    document.addEventListener("scroll", handleScroll);
+
+    return () => document.removeEventListener("scroll", handleScroll);
+  });
+
+  const solidSettings =
+    "bg-primary-light dark:bg-primary-dark shadow-md shadow-secondary-light dark:shadow-secondary-dark bg-opacity-100 dark:bg-opacity-100";
+  const transparentSettings =
+    "md:text-primary-light dark:md:text-primary-light md:bg-opacity-0 dark:md:bg-opacity-0 md:text-secondary-light md:hover:text-primary-light dark:md:text-secondary-light dark:md:hover:text-primary-light";
 
   return (
-    <header>
+    <header
+      className={`z-50 w-full text-secondary-dark transition delay-100 duration-1000 hover:text-primary-dark dark:text-secondary-light dark:hover:text-primary-light md:fixed ${
+        isTransparent ? transparentSettings : solidSettings
+      }`}
+    >
       <Container className="flex w-full items-center justify-between py-8">
-        <Logo />
+        <NavLink
+          to="/"
+          className="font-logo text-2xl font-bold transition-all delay-100 duration-1000"
+        >
+          Greg Mozer
+        </NavLink>
         <nav>
           {/* TODO: Refactor to use only one menu */}
           <section id="desktopMenu" className="hidden md:flex">
             <CustomNavLink to="/" className="mr-8">
               Home
             </CustomNavLink>
+            <CustomNavLink to="/#about" className="mr-8">
+              About
+            </CustomNavLink>
             <CustomNavLink to="/projects" className="mr-8">
               Projects
-            </CustomNavLink>
-            <CustomNavLink to="/about" className="mr-8">
-              About
             </CustomNavLink>
           </section>
           <section

@@ -9,8 +9,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import tailwindStylesheetUrl from "./styles/tailwind.css";
-import { Footer, Header } from "./components";
+import { Footer, Header } from "~/components";
 import {
   NonFlashOfWrongThemeEls,
   ThemeProvider,
@@ -19,6 +18,7 @@ import {
 import type { Theme } from "~/utils/theme-provider";
 import { getThemeSession } from "~/utils/theme.server";
 import clsx from "clsx";
+import tailwindStylesheetUrl from "~/styles/tailwind.css";
 
 export const links: LinksFunction = () => {
   return [
@@ -82,9 +82,9 @@ function App() {
         <Links />
         <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
       </head>
-      <body className="h-full bg-primary-light font-body dark:bg-primary-dark">
+      <body className="flex min-h-full flex-col bg-primary-light font-body dark:bg-primary-dark">
         <Header />
-        <main>
+        <main className="flex-1 items-start">
           <Outlet />
         </main>
         <Footer />

@@ -1,4 +1,4 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink, useLocation } from "@remix-run/react";
 
 interface CustomNavLinkProps {
   to: string;
@@ -7,24 +7,24 @@ interface CustomNavLinkProps {
 }
 
 const CustomNavLink: React.FC<CustomNavLinkProps> = (props) => {
+  const location = useLocation();
+  const currentPath = location.pathname + location.hash;
   return (
     <NavLink
       to={props.to}
+      end
       className={`${
         props.className ? props.className + " " : ""
-      } group relative font-link text-lg font-bold text-secondary-dark hover:text-primary-dark dark:text-secondary-light dark:hover:text-primary-light md:text-xl`}
+      } group relative font-link text-lg font-bold md:text-xl`}
     >
       {({ isActive }) => (
-        <>
+        <span
+          className={`${
+            props.to === currentPath ? "text-primary-accent" : ""
+          } hover:text-primary-accent`}
+        >
           {props.children}
-          <span
-            className={`ease absolute -bottom-1 left-0 inline-block h-[2px] bg-primary-dark transition-[width] duration-500 group-hover:w-full dark:bg-primary-light ${
-              isActive ? "w-full" : "w-0"
-            }`}
-          >
-            &nbsp;
-          </span>
-        </>
+        </span>
       )}
     </NavLink>
   );
