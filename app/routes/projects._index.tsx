@@ -31,13 +31,13 @@ export default function Projects() {
             : "md:col-span-2"
         }`}
       >
-        <div className="relative flex h-full border-0 ring-2 ring-inset ring-primary-accent">
+        <div className="relative flex h-full">
           <img
             src={project.img.src}
             alt={project.img.alt}
             className="absolute top-0 z-0 h-full w-full object-cover object-center"
           />
-          <div className="z-10 flex flex-col gap-4 self-start p-6 md:self-end">
+          <div className="z-10 flex h-full w-full flex-col gap-4 self-start border-0 p-6 ring-2 ring-inset ring-primary-accent md:items-end md:justify-end">
             <h1 className="w-max rounded-md bg-primary-accent/50 p-2 py-2 text-2xl font-bold text-primary-light">
               {project.title}
             </h1>
