@@ -2,7 +2,7 @@ import type { V2_MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
 import { Section } from "~/components";
-import { getProjects } from "~/models/project.server";
+import { type Project, getProjects } from "~/models/project.server";
 
 export const meta: V2_MetaFunction = () => [{ title: "Projects by propbono" }];
 
@@ -13,7 +13,7 @@ export const loader = async () => {
 export default function Projects() {
   const data = useLoaderData<typeof loader>();
 
-  const links = data.projects.map((project, index) => {
+  const links = data.projects.map((project: Project, index: number) => {
     const isEvenRow = Math.floor(index / 2) % 2 === 0;
     const isColumnBigger =
       (isEvenRow && index % 2 === 1) || (!isEvenRow && index % 2 === 0);
@@ -32,8 +32,8 @@ export default function Projects() {
       >
         <div className="relative flex h-full border-0 ring-2 ring-inset ring-primary-accent">
           <img
-            src={project.img}
-            alt={project.metadata.description}
+            src={project.img.src}
+            alt={project.img.alt}
             className="absolute top-0 z-0 h-full w-full object-cover object-center"
           />
           <div className="z-10 flex flex-col gap-4 self-start p-6 md:self-end">
@@ -41,10 +41,10 @@ export default function Projects() {
               {project.title}
             </h1>
             <div className="flex items-start gap-2 md:items-center md:justify-start">
-              {project.stack.map((item) => (
+              {project.stack.map((item, index) => (
                 <span
                   className="rounded-sm bg-primary-accent/50 p-2 text-sm text-primary-light"
-                  key="item"
+                  key={`${item}-${index}`}
                 >
                   {item}
                 </span>
