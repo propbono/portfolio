@@ -1,25 +1,26 @@
 import { join } from "path";
 import fs from "fs/promises";
 import invariant from "tiny-invariant";
+import { type Project } from "./project.schema";
 
-export type Metadata = {
-  description: string;
-  published: string;
-  keywords: string[];
-};
-export type Image = {
-  src: string;
-  alt: string;
-};
-export type Project = {
-  slug: string;
-  title: string;
-  img: Image;
-  excerpt: string;
-  url: string;
-  stack: string[];
-  metadata: Metadata;
-};
+// export type Metadata = {
+//   description: string;
+//   published: string;
+//   keywords: string[];
+// };
+// export type Image = {
+//   src: string;
+//   alt: string;
+// };
+// export type Project = {
+//   slug: string;
+//   title: string;
+//   img: Image;
+//   excerpt: string;
+//   url: string;
+//   stack: string[];
+//   metadata: Metadata;
+// };
 
 const projectsPath = join(__dirname, "/../app/projects");
 
@@ -48,9 +49,9 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
       alt: data.img.alt,
     },
     metadata: {
-      published: data?.metadata?.published || "",
-      description: data?.metadata?.description || "",
-      keywords: data?.metadata?.keywords || "",
+      published: data?.metadata?.published,
+      description: data?.metadata?.description,
+      keywords: data?.metadata?.keywords,
     },
   };
 };

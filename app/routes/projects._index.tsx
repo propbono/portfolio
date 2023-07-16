@@ -2,7 +2,8 @@ import type { V2_MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
 import { Section } from "~/components";
-import { type Project, getProjects } from "~/models/project.server";
+import { type Project } from "~/models/project.schema";
+import { getProjects } from "~/models/project.server";
 
 export const meta: V2_MetaFunction = () => [{ title: "Projects by propbono" }];
 
