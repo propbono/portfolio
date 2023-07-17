@@ -22,10 +22,10 @@ export default function ProjectSlug() {
   const stacks: TechStackKey[] = project.stack as unknown as TechStackKey[];
   return (
     <>
-      <Section className="relative z-0 min-h-screen bg-secondary-dark md:p-32">
+      <Section className="z-0 bg-secondary-dark md:min-h-screen md:p-32 2xl:min-h-full">
         <Container>
-          <div className="grid grid-flow-row grid-rows-2 gap-8 py-6 sm:grid-flow-col sm:grid-cols-2 sm:py-16 md:grid-rows-1">
-            <div className=" row-start-2 flex flex-col items-start justify-center sm:row-start-1">
+          <div className="flex flex-col flex-col-reverse gap-8 py-6 md:flex-row md:items-center md:gap-16">
+            <div className="row-start-2 flex flex-col items-start justify-center sm:row-start-1">
               <h1 className="my-10 w-full font-logo text-4xl font-bold leading-snug text-primary-light dark:text-primary-light md:my-0 md:mb-10 2xl:mb-20 2xl:text-5xl 2xl:leading-snug">
                 {project.title}
               </h1>
