@@ -50,7 +50,7 @@ export default function ProjectSlug() {
           </div>
         </Container>
       </Section>
-      <TechStack stacks={stacks} />
+      <TechStack stacks={stacks} position="start" home={false} />
     </>
   );
 }
