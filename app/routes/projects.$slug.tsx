@@ -4,6 +4,7 @@ import { useLoaderData } from "@remix-run/react";
 import { getProject } from "~/models/project.server";
 import invariant from "tiny-invariant";
 import { Container, LinkButton, Section, TechStack } from "~/components";
+import { type TechStackKey } from "~/models/project.schema";
 
 export const loader = async ({ params }: LoaderArgs) => {
   invariant(params.slug, "params.slug is required");
@@ -17,6 +18,8 @@ type LoaderData = SerializeFrom<typeof loader>;
 
 export default function ProjectSlug() {
   const { project } = useLoaderData<LoaderData>();
+  // don't like that
+  const stacks: TechStackKey[] = project.stack as unknown as TechStackKey[];
   return (
     <>
       <Section className="relative z-0 min-h-screen bg-secondary-dark md:p-32">
@@ -47,7 +50,7 @@ export default function ProjectSlug() {
           </div>
         </Container>
       </Section>
-      <TechStack />
+      <TechStack stacks={stacks} />
     </>
   );
 }

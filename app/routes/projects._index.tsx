@@ -1,7 +1,7 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/server-runtime";
-import { Section } from "~/components";
+import { STACKS, Section } from "~/components";
 import { type Project } from "~/models/project.schema";
 import { getProjects } from "~/models/project.server";
 
@@ -12,9 +12,10 @@ export const loader = async () => {
 };
 
 export default function Projects() {
-  const data = useLoaderData<typeof loader>();
+  const data = useLoaderData<{ projects: Project[] }>();
+  const projects: Project[] = data.projects as Project[];
 
-  const links = data.projects.map((project: Project, index: number) => {
+  const links = projects.map((project: Project, index: number) => {
     const isEvenRow = Math.floor(index / 2) % 2 === 0;
     const isColumnBigger =
       (isEvenRow && index % 2 === 1) || (!isEvenRow && index % 2 === 0);
@@ -47,7 +48,7 @@ export default function Projects() {
                   className="rounded-sm bg-primary-accent/50 p-2 text-sm text-primary-light"
                   key={`${item}-${index}`}
                 >
-                  {item}
+                  {STACKS[item].title}
                 </span>
               ))}
             </div>

@@ -1,4 +1,23 @@
 import { z } from "zod";
+import { type IconType } from "react-icons";
+
+const AllTechSchema = z.enum([
+  "ReactJS",
+  "NextJS",
+  "Typescript",
+  "RemixJS",
+  "TailwindCSS",
+  "Prisma",
+  "NodeJS",
+  "Python",
+  "Git",
+]);
+
+export const StackItemSchema = z.object({
+  title: z.string(),
+  link: z.string(),
+  Icon: z.unknown() as z.ZodType<IconType>,
+});
 
 export const Image = z.object({
   src: z.string(),
@@ -17,9 +36,16 @@ export const Project = z.object({
   img: Image,
   excerpt: z.string().optional(),
   url: z.string().optional(),
-  stack: z.array(z.string()),
+  stack: z.array(AllTechSchema),
   metadata: Metadata,
 });
 
+export type TechStackKey = z.infer<typeof AllTechSchema>;
+
+export type TechStacks = {
+  [key in TechStackKey]: z.infer<typeof StackItemSchema>;
+};
+
+export type StackItem = z.infer<typeof StackItemSchema>;
+
 export type Project = z.infer<typeof Project>;
-export const Projects = z.array(Project);
