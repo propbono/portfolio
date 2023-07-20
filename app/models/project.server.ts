@@ -3,25 +3,6 @@ import fs from "fs/promises";
 import invariant from "tiny-invariant";
 import { type Project } from "./project.schema";
 
-// export type Metadata = {
-//   description: string;
-//   published: string;
-//   keywords: string[];
-// };
-// export type Image = {
-//   src: string;
-//   alt: string;
-// };
-// export type Project = {
-//   slug: string;
-//   title: string;
-//   img: Image;
-//   excerpt: string;
-//   url: string;
-//   stack: string[];
-//   metadata: Metadata;
-// };
-
 const projectsPath = join(__dirname, "/../app/projects");
 
 export const getSlugs = async (): Promise<string[]> => {
@@ -30,10 +11,6 @@ export const getSlugs = async (): Promise<string[]> => {
 };
 
 export const getProjectFromSlug = async (slug: string): Promise<Project> => {
-  // const projectPath = join(projectsPath, `/${slug}/index.mdx`);
-  // const source = await fs.readFile(projectPath);
-  // const { content, data } = matter(source);
-
   const projectPath = join(projectsPath, `/${slug}/index.json`);
   const jsonFile = await fs.readFile(projectPath, "utf-8");
   const data: Project = JSON.parse(jsonFile);
@@ -43,6 +20,8 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
     title: data.title,
     excerpt: data.excerpt,
     url: data.url,
+    githubUrl: data.githubUrl,
+    background: data.background,
     stack: data.stack,
     img: {
       src: data.img.src,

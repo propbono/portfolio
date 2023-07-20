@@ -22,10 +22,13 @@ export default function ProjectSlug() {
   const stacks: TechStackKey[] = project.stack as unknown as TechStackKey[];
   return (
     <>
-      <Section className="z-0 bg-secondary-dark md:min-h-screen md:p-32 2xl:min-h-full">
+      <Section
+        className="z-0 bg-opacity-50 md:min-h-screen md:p-32 2xl:min-h-full"
+        style={{ background: project.background }}
+      >
         <Container>
-          <div className="flex flex-col flex-col-reverse gap-8 py-6 md:flex-row md:items-center md:gap-16">
-            <div className="row-start-2 flex flex-col items-start justify-center sm:row-start-1">
+          <div className="grid grid-cols-1 gap-8 py-6 md:grid-cols-5 md:items-center md:gap-16">
+            <div className="row-start-2 flex flex-col items-start justify-center md:col-span-3 md:row-start-1 2xl:col-span-2">
               <h1 className="my-10 w-full font-logo text-4xl font-bold leading-snug text-primary-light dark:text-primary-light md:my-0 md:mb-10 2xl:mb-20 2xl:text-5xl 2xl:leading-snug">
                 {project.title}
               </h1>
@@ -33,19 +36,18 @@ export default function ProjectSlug() {
                 {project.metadata.description}
               </p>
               {project.url ? (
-                <LinkButton to={project.url}>See in Action...</LinkButton>
+                <LinkButton to={project.url} target="_blank">
+                  See in Action...
+                </LinkButton>
               ) : null}
             </div>
-            <div className="flex w-full">
-              <div className="h-full w-full">
-                <img
-                  src={project.img.src}
-                  alt={project.img.alt}
-                  width={612}
-                  height={383}
-                  className="rounded-lg"
-                />
-              </div>
+            <div className="h-full w-full md:col-span-2 2xl:col-span-3">
+              <img
+                src={project.img.src}
+                alt={project.img.alt}
+                width={800}
+                className="rounded-lg"
+              />
             </div>
           </div>
         </Container>

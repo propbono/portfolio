@@ -11,12 +11,17 @@ const AllTechSchema = z.enum([
   "NodeJS",
   "Python",
   "Git",
+  "Vercel",
+  "Vitest",
+  "Vite",
+  "ReactQuery",
+  "Redux",
 ]);
 
 export const StackItemSchema = z.object({
   title: z.string(),
   link: z.string(),
-  Icon: z.unknown() as z.ZodType<IconType>,
+  Icon: z.unknown().optional() as z.ZodType<IconType>,
 });
 
 export const Image = z.object({
@@ -34,8 +39,10 @@ export const Project = z.object({
   slug: z.string(),
   title: z.string(),
   img: Image,
+  background: z.string(),
   excerpt: z.string().optional(),
   url: z.string().optional(),
+  githubUrl: z.string().optional(),
   stack: z.array(AllTechSchema),
   metadata: Metadata,
 });
