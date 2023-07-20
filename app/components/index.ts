@@ -6,3 +6,7 @@ export * from "./section/section";
 export * from "./hero-section/hero-section";
 export * from "./about-section/about-section";
 export * from "./tech-stack/tech-stack";
+export * from "./button/link-button";
+export * from "./tech-stack/stack-item";
+export * from "./tech-stack/tech-stack";
+export * from "./tech-stack/tech-stacks";

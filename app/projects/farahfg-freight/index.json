@@ -1,0 +1,22 @@
+{
+  "title": "Farah Freight Group company website",
+  "url": "https://farahfg.com",
+  "stack": ["ReactJS", "NextJS", "Typescript", "Vercel"],
+  "background": "#A32035",
+  "metadata": {
+    "keywords": [
+      "React",
+      "NextJS",
+      "Typescript",
+      "Freight Website",
+      "FarahFG",
+      "Transport Website"
+    ],
+    "published": "2021-04-07",
+    "description": "Company website for Farah Freight Group. Single Page Application created using NextJS and Nodemailer for sending emails."
+  },
+  "img": {
+    "src": "/images/projects/farahfg-freight/farah-group-1.png",
+    "alt": "Farah Freight Group Homepage"
+  }
+}

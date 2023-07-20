@@ -2,7 +2,7 @@ import Container from "../container/container";
 import Section from "../section/section";
 import HeroImageDark from "~/img/HeroBackground_Dark.png";
 
-import { Link } from "@remix-run/react";
+import { LinkButton } from "../button/link-button";
 
 const styles = {
   section: "md:h-[100vh] md:py-0",
@@ -13,8 +13,6 @@ const styles = {
   p: "mb-6 w-full font-body text-xl font-medium leading-relaxed text-secondary-light dark:text-secondary-light md:mb-10 2xl:mb-14 2xl:text-2xl 2xl:leading-normal",
   link: {
     container: "my-6 flex justify-normal md:justify-end",
-    button:
-      "transform items-center rounded-lg border-0 bg-primary-dark px-10 py-3 font-link text-xl font-bold text-primary-light outline-none transition duration-1000 hover:bg-primary-accent dark:bg-primary-light dark:text-secondary-dark dark:hover:bg-primary-accent",
   },
 };
 
@@ -35,13 +33,9 @@ export const HeroSection = () => {
             web development and see how I can help bring your ideas to life.
           </p>
           <div className={styles.link.container}>
-            <Link
-              to="/projects"
-              title="Projects Button Link"
-              className={styles.link.button}
-            >
+            <LinkButton to="/projects" title="Projects Button Link">
               Explore Projects
-            </Link>
+            </LinkButton>
           </div>
         </div>
       </Container>
