@@ -1,0 +1,22 @@
+{
+  "title": "Propbono Portfolio Website",
+  "url": "https://gmozer.ca/",
+  "githubUrl": "https://github.com/propbono/portfolio",
+  "stack": ["ReactJS", "RemixJS", "Vitest", "Typescript"],
+  "background": "#00c6bd",
+  "metadata": {
+    "keywords": [
+      "React",
+      "RemixJS app",
+      "Propbono Portfolio",
+      "Vitest enabled",
+      "Typescript enabled"
+    ],
+    "published": "2023-07-19",
+    "description": "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS."
+  },
+  "img": {
+    "src": "/images/projects/propbono/propbono-1.png",
+    "alt": "Propbono portfolio homepage"
+  }
+}

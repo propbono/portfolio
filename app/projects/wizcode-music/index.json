@@ -1,0 +1,22 @@
+{
+  "title": "Wizcode Music App",
+  "url": "https://wizcode-music.vercel.app",
+  "githubUrl": "https://github.com/propbono/wizcode-music",
+  "stack": ["ReactJS", "Vite", "Vitest", "Typescript", "ReactQuery"],
+  "background": "#10b981",
+  "metadata": {
+    "keywords": [
+      "React",
+      "React Query Project",
+      "Vite App",
+      "Vitest enabled",
+      "TanStack Query"
+    ],
+    "published": "2022-03-22",
+    "description": "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query."
+  },
+  "img": {
+    "src": "/images/projects/wizcode/wizcode-music-1.png",
+    "alt": "Wizcode App homepage"
+  }
+}
