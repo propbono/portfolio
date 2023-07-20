@@ -1,0 +1,23 @@
+{
+  "title": "Gemprint company website",
+  "url": "https://gemprint-ca.vercel.app",
+  "githubUrl": "https://github.com/propbono/gemprint.ca",
+  "stack": ["ReactJS", "NextJS", "Typescript", "Vercel", "Prisma"],
+  "background": "#00afde",
+  "metadata": {
+    "keywords": [
+      "React",
+      "NextJS",
+      "Typescript",
+      "Gemprint Website",
+      "Gemprint Printing Toronto",
+      "Printing Website"
+    ],
+    "published": "2021-05-07",
+    "description": "Company website for Gemprint. Single Page Application created using NextJS and NextAuth. Currently working on adding Dashboard to manage print orders. In future will be ported to RemixJS"
+  },
+  "img": {
+    "src": "/images/projects/gemprint/gemprint-1.png",
+    "alt": "Gemprint Homepage"
+  }
+}
